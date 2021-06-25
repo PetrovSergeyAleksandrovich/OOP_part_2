@@ -5,13 +5,15 @@ class Elf
 {
 private:
     int name = -1;
+    class BigBranch* big_branch = nullptr;
 public:
 
-    Elf()
+    Elf(class BigBranch* inBigBranch)
     {
         std::srand(time(0));
         int rand_number = (1 + rand()%1000000);
         Sleep(1001);
+        this->big_branch = inBigBranch;
         this->name = rand_number;
     }
 
@@ -31,6 +33,7 @@ public:
     {
         this->big_branch = inBigBranch;
         std::cout << "      Mid Branch Created with Elf id ";
+        elf = new Elf(this->big_branch);
         std::cout <<elf->getName() << std::endl;
     }
 
@@ -119,6 +122,7 @@ int main()
     BigBranch* found = nullptr;
     const int trees_amount = 5;
     Tree* trees = new Tree[trees_amount];
+    Elf zarok = nullptr;
 
     std::cout << "\nType Elf's number at forest to search: " ;
     std::cin >> user_input;
@@ -130,6 +134,7 @@ int main()
             for(int k = 0; k < (trees+i)->getBigBranch(j)->getNumberOfMidBranches(); k++)
             {
                 int Elf_number = (trees+i)->getBigBranch(j)->getMidBranch(k)->getElf();
+
                 if(Elf_number == user_input)
                 {
                     found = (trees+i)->getBigBranch(j);
@@ -144,6 +149,7 @@ int main()
             if(found != nullptr) break;
         }
         if(found != nullptr) break;
+
     }
 
     delete[] trees;
