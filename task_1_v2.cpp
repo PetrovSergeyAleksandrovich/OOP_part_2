@@ -122,7 +122,6 @@ int main()
     BigBranch* found = nullptr;
     const int trees_amount = 5;
     Tree* trees = new Tree[trees_amount];
-    Elf zarok = nullptr;
 
     std::cout << "\nType Elf's number at forest to search: " ;
     std::cin >> user_input;
@@ -149,8 +148,9 @@ int main()
             if(found != nullptr) break;
         }
         if(found != nullptr) break;
-
     }
+
+    if(found == nullptr) std::cout << "Elf doesn't exist" << std::endl;
 
     delete[] trees;
     return 0;
