@@ -150,7 +150,7 @@ int main()
         if(found != nullptr)  break;
     }
     if(found == nullptr) std::cout << "Elf doesn't exist" << std::endl;
-    
+
     delete[] trees;
     return 0;
 }
