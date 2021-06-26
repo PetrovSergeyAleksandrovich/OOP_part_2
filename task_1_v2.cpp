@@ -138,7 +138,7 @@ int main()
                 {
                     found = (trees+i)->getBigBranch(j);
                     std::cout << "Elf exists with neigbours: ";
-                    for(int n = 0; k < (trees+i)->getBigBranch(j)->getNumberOfMidBranches(); n++)
+                    for(int n = 0; n < (trees+i)->getBigBranch(j)->getNumberOfMidBranches(); ++n)
                     {
                        std::cout << (trees+i)->getBigBranch(j)->getMidBranch(n)->getElf() << " ";
                     }
@@ -147,11 +147,10 @@ int main()
             }
             if(found != nullptr) break;
         }
-        if(found != nullptr) break;
+        if(found != nullptr)  break;
     }
-
     if(found == nullptr) std::cout << "Elf doesn't exist" << std::endl;
-
+    
     delete[] trees;
     return 0;
 }
