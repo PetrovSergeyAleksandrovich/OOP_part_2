@@ -126,7 +126,7 @@ private:
 public:
     Senior()
     {
-        std::cout << "Senior generaring tasks. Please wait..." << std::endl;
+        std::cout << "Senior generaring tasks. \nPlease wait";
         std::vector<int> tmp;
 
         //generate amount of middles
@@ -137,11 +137,13 @@ public:
         //generate tasks
         for(int i = 0; i < this->number_of_middles*5; i++)
         {
+            std::cout << ".";
             std::srand(time(nullptr));
             Sleep(1001);
             int rand_number = (1 + (rand())%3);
             tmp.push_back(rand_number);
         }
+        std::cout << std::endl;
         //print tasks Senior has
         this->tasks = tmp;
         for(int i = 0; i < this->tasks.size(); i++)
